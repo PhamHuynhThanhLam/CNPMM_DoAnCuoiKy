@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DemoAngular</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="assets/styles/bootstrap4/bootstrap.min.css">
+<link href="assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="assets/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="assets/styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="assets/styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="assets/styles/offers_styles.css">
+<link rel="stylesheet" type="text/css" href="assets/styles/offers_responsive.css">
+<!--login-->
+
+<script src="assets/js/login.js"></script>
+
+<script src="assets/styles/bootstrap4/popper.js"></script>
+<script src="assets/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="assets/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="assets/plugins/easing/easing.js"></script>
+<script src="assets/js/custom.js"></script>
+
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+
+<script src="assets/plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="assets/plugins/parallax-js-master/parallax.min.js"></script>
+<script src="assets/js/offers_custom.js"></script>
+<!--user-->
+<link href="./assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="./assets/styles/sb-admin-2.min.css" rel="stylesheet">
+
+<script src="./assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="./assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="./assets/js/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="./assets/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="./assets/js/js/demo/chart-area-demo.js"></script>
+<script src="./assets/js/js/demo/chart-pie-demo.js"></script>
+
+<script src="./assets/js/js/sb-admin-2.min.js"></script>
+
+<script>
+  function myMap() {
+  var mapProp= {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+  };
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+ 
+</head>
+  </head>
+  <body id="page-top">
+    <app-root></app-root>
+
+    <!--login-->
+    <script >
+      $('.form').find('input, textarea').on('keyup blur focus', function (e) {
+  
+      var $this = $(this),
+          label = $this.prev('label');
+
+        if (e.type === 'keyup') {
+          if ($this.val() === '') {
+              label.removeClass('active highlight');
+            } else {
+              label.addClass('active highlight');
+            }
+        } else if (e.type === 'blur') {
+          if( $this.val() === '' ) {
+            label.removeClass('active highlight'); 
+          } else {
+            label.removeClass('highlight');   
+          }   
+        } else if (e.type === 'focus') {
+          
+          if( $this.val() === '' ) {
+            label.removeClass('highlight'); 
+          } 
+          else if( $this.val() !== '' ) {
+            label.addClass('highlight');
+          }
+        }
+
+        });
+
+        $('.tab a').on('click', function (e) {
+          
+          e.preventDefault();
+          
+          $(this).parent().addClass('active');
+          $(this).parent().siblings().removeClass('active');
+          
+          target = $(this).attr('href');
+
+          $('.tab-content > div').not(target).hide();
+          
+          $(target).fadeIn(600);
+          
+        });
+    </script>
+
+  </body>
+</html>
