@@ -1840,8 +1840,6 @@ pre code {
   border: 1px solid #d1d3e2;
   border-radius: 0.35rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  margin-left: 0px;
-
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -4492,7 +4490,6 @@ input[type="button"].btn-block {
 }
 
 .card-body {
-  width: 500px;
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
@@ -11213,6 +11210,3 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
-
-
-

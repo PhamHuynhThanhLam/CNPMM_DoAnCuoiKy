@@ -15,11 +15,9 @@
 <link rel="stylesheet" type="text/css" href="assets/styles/responsive.css">
 <link rel="stylesheet" type="text/css" href="assets/styles/offers_styles.css">
 <link rel="stylesheet" type="text/css" href="assets/styles/offers_responsive.css">
-<link rel="stylesheet" type="text/css" href="assets/styles/all.css">
 <!--login-->
 
 <script src="assets/js/login.js"></script>
-<script src="assets//js/jquery.slim.min.js"></script>
 
 <script src="assets/styles/bootstrap4/popper.js"></script>
 <script src="assets/styles/bootstrap4/bootstrap.min.js"></script>
@@ -67,57 +65,10 @@
 
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 
+
 </head>
   </head>
   <body id="page-top">
     <app-root></app-root>
-
-    <!--login-->
-    <script >
-      $('.form').find('input, textarea').on('keyup blur focus', function (e) {
-
-      var $this = $(this),
-          label = $this.prev('label');
-
-        if (e.type === 'keyup') {
-          if ($this.val() === '') {
-              label.removeClass('active highlight');
-            } else {
-              label.addClass('active highlight');
-            }
-        } else if (e.type === 'blur') {
-          if( $this.val() === '' ) {
-            label.removeClass('active highlight');
-          } else {
-            label.removeClass('highlight');
-          }
-        } else if (e.type === 'focus') {
-
-          if( $this.val() === '' ) {
-            label.removeClass('highlight');
-          }
-          else if( $this.val() !== '' ) {
-            label.addClass('highlight');
-          }
-        }
-
-        });
-
-        $('.tab a').on('click', function (e) {
-
-          e.preventDefault();
-
-          $(this).parent().addClass('active');
-          $(this).parent().siblings().removeClass('active');
-
-          target = $(this).attr('href');
-
-          $('.tab-content > div').not(target).hide();
-
-          $(target).fadeIn(600);
-
-        });
-    </script>
-
   </body>
 </html>

@@ -7,26 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  title = 'demoApp';
-  email:string;
-  password:string;
-  remail:string;
-  rpassword:string;
-  rcpassword:string;
- 
-   constructor(){
- 
-   }
-   register() {
- 
-   }
-   login() {
-     if(this.email=="admin" && this.password=="admin"){
-         
-     }else{
-    
-     }
-   }
+  constructor() { }
 
   ngOnInit(): void {
   }
