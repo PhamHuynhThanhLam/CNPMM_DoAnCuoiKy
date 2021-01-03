@@ -84,7 +84,7 @@ const routes: Routes = [
       { path: 'bang-gia-dich-vu',          component: TableServicePriceComponent },
       { path: 'chi-tiet/:name/:id',          component: DetailMotelComponent },
       { path: 'tro-giup',          component: HelpComponent } ,
-      { path: 'area/:name',          component: AreaCityHomeComponent }
+      { path: 'area/:name',          component: AreaCityHomeComponent }      
     ]
   },
   { path: 'login', component: LoginComponent },

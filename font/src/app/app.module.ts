@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { OwlModule } from 'ngx-owl-carousel';
 import { AppRoutingModule } from './app-routing.module';
@@ -59,7 +59,7 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatButtonModule} from '@angular/material/button';
 import { MatTooltipModule} from '@angular/material/tooltip';
 import { MatRippleModule} from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker'; 
 import { MatCheckboxModule} from '@angular/material/checkbox';
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -178,7 +178,7 @@ import { DialogThongBaoComponent } from './authority/loginuser/publish/dialog-th
     MatRadioModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatTooltipModule,
+    MatTooltipModule, 
     MatRippleModule,
     MatDatepickerModule,
     MatToolbarModule,
@@ -195,8 +195,3 @@ import { DialogThongBaoComponent } from './authority/loginuser/publish/dialog-th
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent }
-];

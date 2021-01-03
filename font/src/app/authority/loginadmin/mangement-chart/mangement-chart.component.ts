@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip, Color } from 'ng2-charts';
 import { Motel } from '../../../model/Motel';
-import { UserPublishViewModel } from '../../../model/UserPublishViewModel';
 import { MotelService } from '../../../services/motel.service';
 
 export interface Type{
