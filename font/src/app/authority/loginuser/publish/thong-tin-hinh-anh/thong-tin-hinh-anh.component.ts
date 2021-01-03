@@ -6,6 +6,7 @@ import { BehaviorSubjectClass } from '../../../../services/behaviorsubject'
 import { Motel } from 'src/app/model/Motel';
 import { DialogThongBaoComponent } from '../dialog-thong-bao/dialog-thong-bao.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Image } from 'src/app/model/Image';
 
 @Component({
   selector: 'app-thong-tin-hinh-anh',
@@ -24,9 +25,10 @@ export class ThongTinHinhAnhComponent implements OnInit {
     this.behaviorSubjectClass.getDataImages().subscribe(data => {
       this.imageprevous = data;
       if(this.imageprevous.length){
-        this.image = this.imageprevous
+        this.image = this.imageprevous;
+        this.hasData = this.imageprevous.length;
       }
-      this.hasData = this.imageprevous.length;
+     
       for(let i=0; i< this.imageprevous.length; i++)
       {
         const reader = new FileReader();
@@ -48,12 +50,13 @@ export class ThongTinHinhAnhComponent implements OnInit {
 
     var files: FileList;
     files = event.target.files;
-    if(this.hasData != 0){
+    /*if(this.hasData != 0){
       for(let i=0;i<this.imageprevous.length;i++){
         this.image.push(this.imageprevous[i]) 
       }
-    }
+    }*/
 
+    
     for(let i=0; i< files.length; i++)
     {
       const reader = new FileReader();
@@ -69,8 +72,17 @@ export class ThongTinHinhAnhComponent implements OnInit {
   }
 
   public onDelete(id){
+    console.log(this.image)
+    if(this.image.length == 1){
+      var fileNew : File[] =[];
+      this.image = fileNew;
+    }
     this.image.forEach((element,index)=>{
-      if(element.name == this.image[id].name) this.image.splice(index,1);
+      console.log(index)
+      console.log(id)
+      if(element.name == this.image[id].name) {
+        this.image.splice(id,1);
+      }
     });
 
     console.log(this.image)
@@ -89,6 +101,7 @@ export class ThongTinHinhAnhComponent implements OnInit {
 
   public next(){
     if(this.image.length){
+      var file: File[] = [];
       this.behaviorSubjectClass.setDataImages(this.image);
       this.router.navigateByUrl('/user/goi-thanh-toan');
 
