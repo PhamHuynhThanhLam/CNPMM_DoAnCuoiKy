@@ -26,7 +26,7 @@ export class SearchMotelComponent implements OnInit {
   
   motelsearch: Motel[];
   @Input() motels:Motel[];
-  types: NewType[];
+  types: NewType[] = [];
   counttypes: NewType[]; // mảng các loại nhà trọ
   arraycounttype: number[] =[]; // đếm số loại nhà trọ
   name:string;
@@ -64,7 +64,7 @@ export class SearchMotelComponent implements OnInit {
     (function ($) {
       $(document).ready(function myFunction(){
         var myVar;
-        myVar = setTimeout(showPage, 3000);
+        myVar = setTimeout(showPage, 8000);
       });
 
       function showPage() {
@@ -87,7 +87,11 @@ export class SearchMotelComponent implements OnInit {
   }
 
   public getTypes(){
-    this.typeservice.getTypes().subscribe(gettypes => this.types = gettypes)
+    this.typeservice.getTypes().subscribe(gettypes => {
+      for(let i=1;i<gettypes.length;i++){
+        this.types.push(gettypes[i])
+      }
+    })
     
   }
 
@@ -119,7 +123,8 @@ export class SearchMotelComponent implements OnInit {
       this.motelService.getMotels().subscribe(getmotels => {
         motel = getmotels
       })
-      for(let i=0; i<this.counttypes.length; i++){
+
+      for(let i=1; i<this.counttypes.length; i++){
         
         var count = this.counttypes[i].details.length;
         this.arraycounttype.push(count);

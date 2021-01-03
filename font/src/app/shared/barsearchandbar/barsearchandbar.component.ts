@@ -42,6 +42,9 @@ export class BarsearchandbarComponent implements OnInit {
   searchtext;
   @Output() newTypeSearch: EventEmitter<string> = new EventEmitter<string>();
   constructor(public location: Location,private priceSearchServer:PriceSearchService,private behaviorSubjectClass:BehaviorSubjectClass,private router: Router,public activerouter:ActivatedRoute,private motelService: MotelService,private cityService: CitiesService, private provinceService: ProvincesService, private typeservice:TypeofnewService) {
+    this.getPrices();
+    this.getCities();
+    this.getNewTypes();
 
     if(localStorage.getItem('province')){
       this.cityService.getCitys().subscribe(getcity => {
@@ -51,19 +54,21 @@ export class BarsearchandbarComponent implements OnInit {
       })
 
     }
+
   }
 
   ngOnInit(): void {
-    this.getPrices();
-    this.getCities();
-    this.getNewTypes();
+
     this.city = "Toàn quốc";
     this.province = "Tất cả";
+
     this.newType = "Phòng trọ, nhà cho thuê"
     this.priceSearch = "Giá thuê"
+    
     if(localStorage.getItem('city') != "Tất cả")
     {
       this.city = localStorage.getItem('city');
+      this.getProvinces();
     }
     else{
       this.city = "Tất cả";
@@ -138,7 +143,6 @@ export class BarsearchandbarComponent implements OnInit {
     this.city = name;
     console.log(name)
     localStorage.removeItem('city');
-
     localStorage.setItem('city', name);
     console.log(localStorage.getItem('city'))
     this.getProvinces();
@@ -165,20 +169,46 @@ export class BarsearchandbarComponent implements OnInit {
       alert("Chọn thành phố trước");
     }
     else{
+      if(localStorage.getItem('city') != "Tất cả"){
+        this.cityService.getCityFromName(localStorage.getItem('city')).subscribe(data => {
+          this.provinceService.getProvincesByCity(Number(data.id)).subscribe( data => {
+            //this.provinces = data
+            var provinceZero = new Province();
+            var number = 0;
+            provinceZero.id = number.toString();
+            provinceZero.name = "Tất cả";
+            provinceZero.cityid = number.toString();
+    
+            var provinceNew : Province[] = [];
+            this.provinces = provinceNew;
+            this.province = "Tất cả"
+            this.provinces.push(provinceZero);
+            for(let i=0;i<data.length;i++){
+              this.provinces.push(data[i])
+            }
+          })
+        })
+      }
+      else{
         var id = this.cities.find(m => m.name == this.city);
         console.log(id)
         this.provinceService.getProvincesByCity(Number(id.id)).subscribe( data => {
-          //this.provinces = data
-          var provinceZero = new Province();
-          var number = 0;
-          provinceZero.id = number.toString();
-          provinceZero.name = "Tất cả";
-          provinceZero.cityid = number.toString();
-          this.provinces.push(provinceZero);
-          for(let i=0;i<data.length;i++){
-            this.provinces.push(data[i])
-          }
-        })
+        //this.provinces = data
+        var provinceZero = new Province();
+        var number = 0;
+        provinceZero.id = number.toString();
+        provinceZero.name = "Tất cả";
+        provinceZero.cityid = number.toString();
+
+        var provinceNew : Province[] = [];
+        this.provinces = provinceNew;
+        this.province = "Tất cả"
+        this.provinces.push(provinceZero);
+        for(let i=0;i<data.length;i++){
+          this.provinces.push(data[i])
+        }
+      })
+      }
     }
   }
 
@@ -189,6 +219,9 @@ export class BarsearchandbarComponent implements OnInit {
       var number = 0;
       cityZero.id = number.toString();
       cityZero.name = "Tất cả";
+
+      var cityNew : City[] = [];
+      this.cities = cityNew;
       this.cities.push(cityZero)
       for(let i=0;i<getcity.length;i++){
         this.cities.push(getcity[i])

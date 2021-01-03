@@ -51,7 +51,7 @@ export class DataMotelComponent implements OnInit {
 
   xetvalue = false;
   area: AreaSearch[];
-
+  
 
   @Input() newTypeseach;
   @Input() citySearch;
@@ -63,14 +63,14 @@ export class DataMotelComponent implements OnInit {
     (function ($) {
       $(document).ready(function myFunction(){
         var myVar;
-        myVar = setTimeout(showPage, 3000);
+        myVar = setTimeout(showPage, 8000);
       });
 
       function showPage() {
         document.getElementById("loader").style.display = "none";
         document.getElementById("myDiv").style.display = "block";
       }
-
+      
     })(jQuery);
    }
 
@@ -102,15 +102,15 @@ export class DataMotelComponent implements OnInit {
       this.nametophead = "Cho Thuê Mặt Bằng, Cho Thuê Văn Phòng, Cửa Hàng, Kiot";
       await this.getMotelByType("Cho thuê mặt bằng");
     }
-
-
-
-
+    
+    
+    
+    
     //this.dangtinService.getSearchMotel().subscribe(motel => this.motelsearch = motel);
     //this.dangtinService.searchmoteluser(this.motelsearch).subscribe(getmotels => this.motels = getmotels);
   }
 
-  public locNews(){
+  public locNews(){  
     //if(localStorage.getItem('areaName') && localStorage.getItem('directName') && localStorage.getItem('legalName')){
     //  this.motels = this.motels.sort((a,b) => return a.)
     //}
@@ -122,7 +122,7 @@ export class DataMotelComponent implements OnInit {
 
   public getTypes(){
     this.typeservice.getTypes().subscribe(gettypes => this.types = gettypes)
-
+    
   }
 
   public getMotelDecreasePrice(){
@@ -170,18 +170,18 @@ export class DataMotelComponent implements OnInit {
     this.motelService.getmotelbytype(name).subscribe(motel => {
       this.motelsearch = motel;
 
-
+ 
       //4
-
+     
       if((localStorage.getItem('priceid') && localStorage.getItem('priceid') != "Tất cả") && (localStorage.getItem('city') && localStorage.getItem('city') != "Tất cả") &&  localStorage.getItem('searchtext') != "NULL" && (localStorage.getItem('province') && localStorage.getItem('province') != "Tất cả") ){
         this.motels = this.motelsearch.filter(a => a.city.name == localStorage.getItem('city') && a.province.name == localStorage.getItem('province') && a.address.toLowerCase().includes(localStorage.getItem('searchtext').toLowerCase()))
         this.getMotelByPriceSearch(localStorage.getItem('priceid'),this.motels)
-        this.motelLoc = this.motels;
+        this.motelLoc = this.motels;              
         console.log("province,city,searchtext,priceid")
       }
 
       //1
-      if((localStorage.getItem('city') && localStorage.getItem('city') != "Tất cả") && (localStorage.getItem('province') == null || localStorage.getItem('province') == "Tất cả") && localStorage.getItem('searchtext') === "NULL" && (localStorage.getItem('priceid') == null || localStorage.getItem('priceid') == "Tất cả")){
+      if((localStorage.getItem('city') && localStorage.getItem('city') != "Tất cả") && (localStorage.getItem('province') == null || localStorage.getItem('province') == "Tất cả") && localStorage.getItem('searchtext') === "NULL"  && (localStorage.getItem('priceid') == null || localStorage.getItem('priceid') == "Tất cả")){
         this.motels = this.motelsearch.filter(a => a.city.name == localStorage.getItem('city'))
         this.motelLoc = this.motels;
         this.totalRecord =this.motels.length;
@@ -229,7 +229,7 @@ export class DataMotelComponent implements OnInit {
       if((localStorage.getItem('city') && localStorage.getItem('city') != "Tất cả") && (localStorage.getItem('province') == null || localStorage.getItem('province') == "Tất cả") && localStorage.getItem('searchtext') == "NULL" && (localStorage.getItem('priceid') && localStorage.getItem('priceid') != "Tất cả")){
         this.motels = this.motelsearch.filter(a => a.city.name == localStorage.getItem('city') );
         this.getMotelByPriceSearch(localStorage.getItem('priceid'),this.motels)
-        this.motelLoc = this.motels;
+        this.motelLoc = this.motels;       
         console.log("priceid,city")
       }
 
@@ -246,7 +246,7 @@ export class DataMotelComponent implements OnInit {
         this.motelLoc = this.motels;
         console.log("province,priceid")
       }
-
+      
 
       if((localStorage.getItem('city') == null || localStorage.getItem('city') == "Tất cả") && (localStorage.getItem('province') == null || localStorage.getItem('province') == "Tất cả") && localStorage.getItem('searchtext') != "NULL" && (localStorage.getItem('priceid') && localStorage.getItem('priceid') != "Tất cả")){
         this.motels = this.motelsearch.filter(a =>a.address.toLowerCase().includes(localStorage.getItem('searchtext').toLowerCase()));
@@ -271,14 +271,14 @@ export class DataMotelComponent implements OnInit {
         console.log("city,province,priceid")
       }
       if((localStorage.getItem('city') == null && localStorage.getItem('city') == "Tất cả") && (localStorage.getItem('province') && localStorage.getItem('province') != "Tất cả") && localStorage.getItem('searchtext') != "NULL" && (localStorage.getItem('priceid') && localStorage.getItem('priceid') != "Tất cả") ){
-        this.motels = this.motelsearch.filter(a => a.province.name == localStorage.getItem('province') && a.address.toLowerCase().includes(localStorage.getItem('searchtext').toLowerCase()));
+        this.motels = this.motelsearch.filter(a => a.province.name == localStorage.getItem('province') && a.address.toLowerCase().includes(localStorage.getItem('searchtext').toLowerCase()));       
         this.getMotelByPriceSearch(localStorage.getItem('priceid'),this.motels)
         this.motelLoc = this.motels;
         this.totalRecord = this.motels.length;
         console.log("searchtext,province,priceid")
       }
       if((localStorage.getItem('city') && localStorage.getItem('city') != "Tất cả")  && (localStorage.getItem('province') == null || localStorage.getItem('province') == "Tất cả") && localStorage.getItem('searchtext') != "NULL" && (localStorage.getItem('priceid') && localStorage.getItem('priceid') != "Tất cả") ){
-        this.motels = this.motelsearch.filter(a => a.city.name == localStorage.getItem('city')  && a.address.toLowerCase().includes(localStorage.getItem('searchtext').toLowerCase()));
+        this.motels = this.motelsearch.filter(a => a.city.name == localStorage.getItem('city')  && a.address.toLowerCase().includes(localStorage.getItem('searchtext').toLowerCase()));       
         this.getMotelByPriceSearch(localStorage.getItem('priceid'),this.motels)
         this.motelLoc = this.motels;
         this.totalRecord = this.motels.length;
@@ -295,7 +295,7 @@ export class DataMotelComponent implements OnInit {
       else{
 
       }
-
+     
     });
   }
 
@@ -303,13 +303,13 @@ export class DataMotelComponent implements OnInit {
     try{
       var role = Number(this.currentAccount.roleId);
     }
-    catch(error){
+    catch(error){    
       if(role == 1){
         this.xetvalue = true;
       }
       this.xetvalue = false;
     }
-
+    
   }
 
   public openDialog(): void {
@@ -326,7 +326,7 @@ export class DataMotelComponent implements OnInit {
         console.log("errr")
       }
       //console.log(localStorage.getItem('areaName') + localStorage.getItem('directName') + localStorage.getItem('legalName'))
-
+    
       //1
       if(localStorage.getItem('areaName') == null && localStorage.getItem('directName') && localStorage.getItem('legalName') == null){
        this.motels = this.motelLoc.filter(a => a.detail.director == localStorage.getItem('directName'))
@@ -343,7 +343,7 @@ export class DataMotelComponent implements OnInit {
         this.getMotelByAreaSearch(area.id);
         console.log("areaName")
       }
-
+       
       //2
       if(localStorage.getItem('areaName') == null && localStorage.getItem('directName') && localStorage.getItem('legalName')){
         this.motels = this.motelLoc.filter(a => a.detail.legal == localStorage.getItem('legalName') && a.detail.director == localStorage.getItem('directName'))
@@ -465,5 +465,5 @@ export class DataMotelComponent implements OnInit {
       console.log("8")
     }
   }
-
+ 
 }
