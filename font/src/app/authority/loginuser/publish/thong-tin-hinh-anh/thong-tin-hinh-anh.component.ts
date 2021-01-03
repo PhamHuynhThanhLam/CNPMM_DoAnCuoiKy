@@ -21,29 +21,33 @@ export class ThongTinHinhAnhComponent implements OnInit {
   loadImageFromPC: string [] = [];
   imageprevous:File [] = [];
   hasData = 0;
-  constructor(public dialog: MatDialog,private behaviorSubjectClass: BehaviorSubjectClass,private router: Router,public motelService:MotelService) { 
+  constructor(public dialog: MatDialog,private behaviorSubjectClass: BehaviorSubjectClass,private router: Router,public motelService:MotelService) {
     this.behaviorSubjectClass.getDataImages().subscribe(data => {
       this.imageprevous = data;
       if(this.imageprevous.length){
         this.image = this.imageprevous;
         this.hasData = this.imageprevous.length;
       }
+<<<<<<< HEAD
+
+=======
      
+>>>>>>> 172f3a1a36659c6a08ac53a7c0f3a4dc77e55325
       for(let i=0; i< this.imageprevous.length; i++)
       {
         const reader = new FileReader();
         reader.readAsDataURL(this.imageprevous[i]);
         reader.onload = (event: any) => {
           this.loadImageFromPC.push(event.target.result)
-        } 
-        
+        }
+
       }
       this.checkLoad = "load";
     })
   }
 
   ngOnInit(): void {
-   
+
   }
 
   public handleFileInput(event) {
@@ -52,9 +56,13 @@ export class ThongTinHinhAnhComponent implements OnInit {
     files = event.target.files;
     /*if(this.hasData != 0){
       for(let i=0;i<this.imageprevous.length;i++){
-        this.image.push(this.imageprevous[i]) 
+        this.image.push(this.imageprevous[i])
       }
     }*/
+<<<<<<< HEAD
+
+=======
+>>>>>>> 172f3a1a36659c6a08ac53a7c0f3a4dc77e55325
 
     
     for(let i=0; i< files.length; i++)
@@ -63,7 +71,7 @@ export class ThongTinHinhAnhComponent implements OnInit {
       reader.readAsDataURL(event.target.files[i]);
       reader.onload = (event: any) => {
         this.loadImageFromPC.push(event.target.result)
-      }   
+      }
       this.image.push(files.item(i)) // lấy hình
     }
     this.checkLoad = "load";
@@ -86,7 +94,7 @@ export class ThongTinHinhAnhComponent implements OnInit {
     });
 
     console.log(this.image)
-    
+
     this.loadImageFromPC = new Array<string>()
     for(let i=0; i< this.image.length; i++)
     {
@@ -94,7 +102,7 @@ export class ThongTinHinhAnhComponent implements OnInit {
       reader.readAsDataURL(this.image[i]);
       reader.onload = (event: any) => {
         this.loadImageFromPC.push(event.target.result)
-      }   
+      }
     }
 
   }
@@ -121,7 +129,7 @@ export class ThongTinHinhAnhComponent implements OnInit {
       direction: "ltr",
       width: '400px'
     });
- 
+
     dialogRef.afterClosed().subscribe(() => {
     });
   }

@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DialogSearchMotelAreaComponent } from './dialog-search-motel-area.component';
 
@@ -22,4 +22,4 @@ describe('DialogSearchMotelAreaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});*/

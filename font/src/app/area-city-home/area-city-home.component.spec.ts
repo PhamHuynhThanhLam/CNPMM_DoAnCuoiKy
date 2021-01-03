@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AreaCityHomeComponent } from './area-city-home.component';
 
@@ -23,3 +23,4 @@ describe('AreaCityHomeComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

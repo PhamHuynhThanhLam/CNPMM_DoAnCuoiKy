@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+/*import { TestBed } from '@angular/core/testing';
 
 import { TypeofnewService } from './newstype.service';
 
@@ -14,3 +14,4 @@ describe('TypeofnewService', () => {
     expect(service).toBeTruthy();
   });
 });
+*/

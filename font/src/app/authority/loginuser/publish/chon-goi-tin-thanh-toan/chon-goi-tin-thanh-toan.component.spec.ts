@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChonGoiTinThanhToanComponent } from './chon-goi-tin-thanh-toan.component';
 
@@ -22,4 +22,4 @@ describe('ChonGoiTinThanhToanComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});*/

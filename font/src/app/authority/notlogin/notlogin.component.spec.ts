@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NotloginComponent } from './notlogin.component';
 
@@ -22,4 +22,4 @@ describe('NotloginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});*/

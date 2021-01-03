@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MangementChartComponent } from './mangement-chart.component';
 
@@ -22,4 +22,4 @@ describe('MangementChartComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});*/

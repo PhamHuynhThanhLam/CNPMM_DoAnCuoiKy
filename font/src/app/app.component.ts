@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
 import { Account } from  '../app/model/Account';
 import {APP_BASE_HREF} from '@angular/common'
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { Router, NavigationEnd, NavigationStart, Routes } from '@angular/router';
 import {TestBed, async} from '@angular/core/testing';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 
 @Component({
@@ -56,4 +58,6 @@ export class AppComponent {
     }
 
   }
+
 }
+

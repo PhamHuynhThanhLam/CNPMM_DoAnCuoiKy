@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DataMotelComponent } from './data-motel.component';
 
@@ -23,3 +23,4 @@ describe('DataMotelComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

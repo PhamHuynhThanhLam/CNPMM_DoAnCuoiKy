@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableServicePriceComponent } from './table-service-price.component';
 
@@ -23,3 +23,4 @@ describe('TableServicePriceComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

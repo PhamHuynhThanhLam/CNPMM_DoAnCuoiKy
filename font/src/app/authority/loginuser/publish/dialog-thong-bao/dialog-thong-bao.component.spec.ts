@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DialogThongBaoComponent } from './dialog-thong-bao.component';
 
@@ -22,4 +22,4 @@ describe('DialogThongBaoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});*/
