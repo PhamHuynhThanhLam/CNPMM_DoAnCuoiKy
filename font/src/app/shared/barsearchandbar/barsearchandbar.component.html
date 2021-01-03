@@ -1,0 +1,103 @@
+<div class="container-fluid " style="background-color: black;">
+  <div class="row" style="padding:5px;">
+    <div class="col-md-12">
+      <div class="row" style="padding-left: 35px;padding-right:35px;">
+
+          <div class="col-md-5">
+            <div class="search-field d-none d-md-block" style="margin-top:2px" >
+              <form class="d-flex align-items-center h-100" action="#">
+                <div class="input-group" style="color: black;background-color: white;border-radius: 2px;">
+                  <div class="input-group-prepend bg-transparent">
+                    <i class="input-group-text border-0 mdi mdi-magnify" style="color: black; background-color: white;"></i>
+                  </div>
+                  <input type="text" [(ngModel)]="searchname" name="searchname" class="form-control bg-transparent border-0" placeholder="Tìm kiếm theo từ, đường hay quận" style="padding-right: 20px;">
+                  <!--<div class="combobox">
+                    <input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" class="combobox-input"  placeholder="Select one..." >
+                    <div class="combobox-options" >
+                      <list-item *ngFor="let heroe of heroes | filter:searchText" >{{heroe.id}} {{heroe.name}} {{heroe.country}}</list-item>
+                    </div>
+                  </div>-->
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="container">
+              <div >
+                <form #form="ngForm" class="row" (ngSubmit)="onClick()">
+                  
+                  <div class="btn-group col-md-2" >
+                    <button *ngIf="city else elseBlocktp" style="width:auto" type="button" class="btn btn-light" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{city}} <span class="fa fa-angle-down" style="color:#00deb6; font-size: 20px;"></span></button>
+                    <ng-template #elseBlocktp><button type="button" class="btn btn-light" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Toàn quốc <span class="fa fa-angle-down" style="color:#00deb6; font-size: 20px;"></span></button></ng-template>
+
+                    <div class="dropdown-menu scrollable-menu" role="menu" x-placement="bottom-start" style="margin-top:5px;position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                      <div *ngFor="let citie of cities" >
+                        <a class="dropdown-item" (click)="onChoiceCity(citie.name)" [value]="citie.id">{{citie.name}}</a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="btn-group col-md-2"  >
+                    <button style="width:auto" *ngIf="province else elseBlock"  type="button" class="btn btn-light" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{province}} <span class="fa fa-angle-down" style="color:#00deb6; font-size: 20px;"></span></button>
+                    <ng-template #elseBlock><button type="button" class="btn btn-light" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Tỉnh thành <span class="fa fa-angle-down" style="color:#00deb6; font-size: 20px;"></span></button></ng-template>
+                    <div class="dropdown-menu scrollable-menu" role="menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                        <div *ngFor='let province of provinces'>
+                            <a class="dropdown-item" (click)="onChoiceProvince(province.name)" [value]="province.id">{{province.name}}</a>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="btn-group col-md-3" >
+                    <button type="button" style="width:auto" *ngIf="newType else elseBlockt" class="btn btn-light" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{newType}} <span class="fa fa-angle-down" style="color:#00deb6; font-size: 20px;"></span></button>
+                    <ng-template #elseBlockt><button type="button"  class="btn btn-light" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Loại bất nhà trọ <span class="fa fa-angle-down" style="color:#00deb6; font-size: 20px;"></span></button></ng-template>
+
+                    <div class="dropdown-menu scrollable-menu" role="menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                        <div *ngFor='let newType of newTypes'>
+                            <a class="dropdown-item" (click)="onChoiceNewtype(newType.name)" [value]="newType.id">{{newType.name}}</a>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="btn-group col-md-3" >
+                    <button type="button" style="width:auto" *ngIf="priceSearch else elseBlockPrice" class="btn btn-light" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{priceSearch}} <span class="fa fa-angle-down" style="color:#00deb6; font-size: 20px;"></span></button>
+                    <ng-template #elseBlockPrice><button type="button"  class="btn btn-light" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Giá thuê <span class="fa fa-angle-down" style="color:#00deb6; font-size: 20px;"></span></button></ng-template>
+
+                    <div class="dropdown-menu scrollable-menu" role="menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                        <div *ngFor='let priceSearch of priceSearchs'>
+                            <a class="dropdown-item" (click)="onChoicePriceSearch(priceSearch)" [value]="priceSearch.id">{{priceSearch.number}}</a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="btn-group col-md-2">
+                    <button type="submit"  style="width:auto" class="btn btn-warning" id="dropdownMenu2" >Tìm kiếm</button>
+                    <!--<div class="dropdown-menu scrollable-menu" role="menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                      <a class="dropdown-item" href="#">Action</a>
+
+                      <a class="dropdown-item" href="#">Action</a>
+
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" href="#">Separated link</a>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <a class="dropdown-item" href="#">Separated link</a>
+                    </div>-->
+                  </div>
+
+                 
+          </form>
+          </div>
+          </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid font" style="height: 50px;background-color:lightgrey;color: black;font-size: 13px;">
+  <div style="padding-top:15px;padding-left: 35px;"><span style="margin-left: 40px;">Motel <div class="fa  fa-chevron-right" style="margin-right: 15px;"></div> <b>{{nametophead}}</b> <div class="fa  fa-chevron-right"style="margin-right: 15px;"></div></span></div>
+</div>
+
+
