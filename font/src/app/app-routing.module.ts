@@ -41,7 +41,7 @@ import { AreaCityHomeComponent } from './area-city-home/area-city-home.component
 import { MagementSendMessegerComponent } from './authority/loginuser/magement-send-messeger/magement-send-messeger.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'admin',          component: LoginadminComponent ,
     children:[

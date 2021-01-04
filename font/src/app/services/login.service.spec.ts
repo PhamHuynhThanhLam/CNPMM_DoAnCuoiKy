@@ -7,21 +7,27 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AuthenticationService } from './authentication.service';
 import { LoginComponent } from '../login/login.component'
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { Account } from '../model/Account';
 
-describe('Component: Login', () => {
+fdescribe('Component: Login', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let phoneEl: DebugElement;
+  let passwordEl: DebugElement;
 
   beforeEach(() => {
       TestBed.configureTestingModule({
-          imports: [FormsModule, HttpClientModule, RouterTestingModule],
+          imports: [HttpClientTestingModule,FormsModule, HttpClientModule, RouterTestingModule],
           declarations: [LoginComponent],
           providers: [AuthenticationService],
       });
       fixture = TestBed.createComponent(LoginComponent);
       component = fixture.componentInstance;
+
       component.ngOnInit();
   });
+
   it('should call auth login method', async(() => {
     let loginElement: DebugElement;
     const debugElement = fixture.debugElement;
@@ -29,10 +35,9 @@ describe('Component: Login', () => {
     let loginSpy = spyOn(authService , 'login').and.callThrough();
     loginElement = fixture.debugElement.query(By.css('form'));
 
-    // to set values
-    //component.loginForm.controls['password'].setValue('user');
-    //component.loginForm.controls['phone'].setValue('123');
     loginElement.triggerEventHandler('ngSubmit', null);
     expect(loginSpy).toHaveBeenCalledTimes(1); // check that service is called once
    }));
+
+  
 });

@@ -14,10 +14,10 @@ fdescribe("Router: App", () => {
   let location: Location;
   let router: Router;
   let fixture;
-
+ 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes(routes),HttpClientTestingModule,HttpTestingController,HttpClientModule],
+      imports: [RouterTestingModule.withRoutes(routes),HttpClientTestingModule,HttpClientModule],
       declarations: [HomeComponent, LoginComponent, AppComponent]
     });
 
@@ -45,10 +45,10 @@ fdescribe("Router: App", () => {
     expect(location.path()).toBe("/home");
   }));
 
-  it('navigate to "login" takes you to /login', fakeAsync(() => {
-    router.navigate(["login"]);
+  it('navigate to "bang-gia-dich-vu" takes you to /bang-gia-dich-vu', fakeAsync(() => {
+    router.navigate(['/home/bang-gia-dich-vu']);
     tick();
-    expect(location.path()).toBe("/login");
+    expect(location.path()).toBe("/home/bang-gia-dich-vu");
   }));
 
 });
